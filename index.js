@@ -22,7 +22,7 @@ const chalk = require('chalk');
 
 // Primero, crear el servidor
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const urlUsers = 'https://randomuser.me/api/?results=50&inc=name';
 
 // Crear la ruta y su acción
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
 
 // Se pone al servidor en escucha en el puerto 3000
 app.listen(PORT,() => {
-    console.log(`Listening server in http://localhost:3000`)
+    console.log(`Listening server in http://localhost:${PORT}`)
 });
 
 // Función para construir la data en el formato especificado.  Utiliza las librerías UUID y Moment para construir in ID unico y el timestamp
